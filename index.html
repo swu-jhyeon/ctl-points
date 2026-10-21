@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>교수법 프로그램 포인트 현황 | 서울여자대학교 교수·학습센터</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- 상단: 서울여대 전용색상(Purple · Yellow · Blue) 띠 + 시그니처 -->
+<header class="top">
+  <div class="stripe" aria-hidden="true"></div>
+  <div class="top-in">
+    <a class="brand" href="https://www.swu.ac.kr/" target="_blank" rel="noopener">
+      <img src="assets/swu-signature.png"
+           data-fb="https://www.swu.ac.kr/sites/swu/images/common/logo_c.png"
+           alt="서울여자대학교"
+           onerror="if(this.dataset.fb){var f=this.dataset.fb;this.removeAttribute('data-fb');this.src=f}else{this.style.display='none'}">
+    </a>
+    <span class="unit">교수·학습센터</span>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="intro">
+    <h1>교수법 프로그램 포인트 현황</h1>
+    <p class="sub">포인트 관리대장 엑셀을 올리면 현황이 바로 집계됩니다. 파일은 이 브라우저 안에서만 처리되며 어디에도 저장하거나 전송하지 않습니다.</p>
+  </section>
+
+  <div class="card drop" id="drop" tabindex="0" role="button" aria-label="엑셀 파일 선택">
+    <div class="drop-text">
+      <b id="pickT">엑셀 파일을 끌어다 놓거나 클릭해서 선택하세요</b>
+      <span class="mute" id="pickS">교수법프로그램_포인트관리대장.xlsx (.xlsx)</span>
+      <div id="msg" role="alert"></div>
+    </div>
+    <img class="chars" src="assets/swu-characters.png"
+         data-fb="https://www.swu.ac.kr/sites/swu/images/sub/character_1.png"
+         alt="서울여자대학교 캐릭터 슈리, 웬디, 유시"
+         onerror="if(this.dataset.fb){var f=this.dataset.fb;this.removeAttribute('data-fb');this.src=f}else{this.style.display='none'}">
+    <input type="file" id="f" accept=".xlsx,.xlsm" hidden>
+  </div>
+
+  <div id="app" hidden>
+    <div class="kpis" id="kpis"></div>
+
+    <section class="card">
+      <h2>프로그램별 현황</h2>
+      <div class="scroll"><table><thead id="ph"></thead><tbody id="pb"></tbody></table></div>
+    </section>
+
+    <section class="card">
+      <h2>교수별 순위 <span class="mute" id="rc"></span></h2>
+      <div class="filters">
+        <input id="q" placeholder="성명·교번·소속 검색">
+        <select id="fg"><option value="">구분 전체</option></select>
+        <select id="fd"><option value="">소속 전체</option></select>
+      </div>
+      <div class="scroll tall">
+        <table>
+          <thead><tr>
+            <th class="c">순위</th><th>소속</th><th>구분</th><th>교번</th><th>성명</th>
+            <th class="n">총 인정 포인트</th><th class="n">참여</th>
+            <th>프로그램별 인정 포인트 <span class="legend">상한 도달</span></th>
+          </tr></thead>
+          <tbody id="rb"></tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="foot">
+  <div class="foot-in">
+    <img src="assets/swu-signature-white.png"
+         data-fb="https://www.swu.ac.kr/sites/swu/images/common/logo_w.png"
+         alt="서울여자대학교"
+         onerror="if(this.dataset.fb){var f=this.dataset.fb;this.removeAttribute('data-fb');this.src=f}else{this.style.display='none'}">
+    <div class="foot-text">
+      <div>서울여자대학교 교수·학습센터 · <a href="http://ctl.swu.ac.kr/" target="_blank" rel="noopener">센터 홈페이지</a></div>
+      <div>(01797) 서울특별시 노원구 화랑로 621</div>
+      <div class="copy">COPYRIGHT ⓒ SEOUL WOMEN’S UNIVERSITY. ALL RIGHTS RESERVED.</div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
